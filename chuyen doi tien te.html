@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form>
+        <label> Amout </label>
+        <input type = "number" id="giaTri" value=""/>
+        <br/>
+        <label> From Currency </label>
+        <select id="from" value = "selectBox(this)">
+                <option label="VND" value = "VND"> </option>
+                <option label="USD" value = "USD"> </option>
+        </select>
+        <br/>
+        <label> To Currency </label>
+        <select id="to" value="selectBox(this)">
+                <option label="USD" value="USD"> </option>
+                <option label="VND" value="VND"> </option>
+        </select>
+        <br/>
+        <button type="button" onclick="show()"> Convert </button>
+        <br>
+        <p id="ketqua"> </p>
+    </form>
+    <script>
+        function selectBox(x){
+            return x.selected;
+        }
+        function show() {
+            let a = document.getElementById("giaTri").value;
+            if((document.getElementById("to").value == "USD") && (document.getElementById("from").value == "VND")){
+            document.getElementById("ketqua").innerText = "Result:  " + a / 23000;}
+            if((document.getElementById("to").value == "VND") && (document.getElementById("from").value == "USD")){
+                document.getElementById("ketqua").innerText = "Result:  " + a * 23000;}
+            if((document.getElementById("to").value == "VND") && (document.getElementById("from").value == "VND")){
+                document.getElementById("ketqua").innerText = "Result:  " + a;}
+            if((document.getElementById("to").value == "USD") && (document.getElementById("from").value == "USD")){
+                document.getElementById("ketqua").innerText = "Result:  " + a;}
+        }
+    </script>
+</body>
+</html>
